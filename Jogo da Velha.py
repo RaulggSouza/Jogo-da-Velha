@@ -84,24 +84,25 @@ def jogo_acabou():
     diagonalP_jogador = 0
     diagonalI_comp = 0
     diagonalI_jogador = 0
+    global resultado
     for i in range(len(tabuleiro)):
         contador_comp = 0
         contador_jogador = 0
         if testar_grade("X",contador_comp):
-            fim(1)
+            resultado = "Computador Ganhou"
             return True
         if testar_grade("O",contador_jogador):
-            fim(2)
+            resultado = "Jogador Ganhou"
             return True
         contador_comp, contador_jogador = 0, 0
         if diagonal(diagonalP_comp, diagonalI_comp, "X"):
-            fim(1)
+            resultado = "Computador Ganhou"
             return True
         if diagonal(diagonalP_jogador, diagonalI_jogador, "O"):
-            fim(2)
+            resultado = "Jogador Ganhou"
             return True
     if empate("X", "O"):
-        fim(3)
+        resultado = "Empate"
         return True
     return False
 
@@ -147,14 +148,5 @@ def empate(letraC, letraJ):
                 if empatar == 9:
                     return True
 
-def fim(valor):
-    global resultado
-    resultado = ""
-    if valor == 1:
-        resultado = "Computador Ganhou"
-    elif valor == 2:
-        resultado = "Jogador Ganhou"
-    elif valor == 3:
-        resultado = "Empate"
 print("Boas vindas ao Jogo da Velha! Você é 'O'")
 jogar()
