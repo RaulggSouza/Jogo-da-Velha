@@ -5,6 +5,8 @@ from time import sleep
 original = ((1,2,3),(4,5,6),(7,8,9)) #Tabuleiro original
 tabuleiro = [[1,2,3],[4,5,6],[7,8,9]] #Tabuleiro mutável
 
+print("Git")
+
 def desenho(): #Desenha o tabuleiro
     for i in range (len(tabuleiro)):
         a= tabuleiro[i][0]
